@@ -1,13 +1,17 @@
-function attendance(status){
-    let response = "Absent"
-    if(("minahal" === status) || ("nasaktan" === status) || ("nagmahal" === status)){
-        response = "Present"
+function attendance(status) {
+    const statusPresent = ["minahal", "nasaktan", "nagmahal"];
+    const lowercaseStatus = status.toLowerCase();
+    let response = "Absent";
+
+    if (statusPresent.some(s => s.toLowerCase() === lowercaseStatus)) {
+        response = "Present";
     }
-    return response
+
+    return response;
 }
 
-console.log(attendance("minahal"))
-console.log(attendance("nasaktan"))
-console.log(attendance("nagmahal"))
+console.log(attendance("minahal"));
+console.log(attendance("NASAKTAN"));
+console.log(attendance("NagMAhal"));
 
 // attendance function
